@@ -1,0 +1,84 @@
+Database connected.
+Checking PurchaseItem schema using raw query (PRAGMA)...
+[SQL] Executing (default): PRAGMA table_info(PurchaseItems);
+Schema: [
+  {
+    "cid": 0,
+    "name": "id",
+    "type": "INTEGER",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 1
+  },
+  {
+    "cid": 1,
+    "name": "quantity",
+    "type": "INTEGER",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 2,
+    "name": "unit_price",
+    "type": "DECIMAL(10,2)",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 3,
+    "name": "total_price",
+    "type": "DECIMAL(10,2)",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 4,
+    "name": "createdAt",
+    "type": "DATETIME",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 5,
+    "name": "updatedAt",
+    "type": "DATETIME",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 6,
+    "name": "purchaseId",
+    "type": "INTEGER",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 7,
+    "name": "productId",
+    "type": "INTEGER",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  }
+]
+Querying top 5 purchases with include...
+[SQL] Executing (default): SELECT `Purchase`.*, `PurchaseItems`.`id` AS `PurchaseItems.id`, `PurchaseItems`.`quantity` AS `PurchaseItems.quantity`, `PurchaseItems`.`unit_price` AS `PurchaseItems.unit_price`, `PurchaseItems`.`total_price` AS `PurchaseItems.total_price`, `PurchaseItems`.`purchaseId` AS `PurchaseItems.purchaseId`, `PurchaseItems`.`productId` AS `PurchaseItems.productId`, `PurchaseItems`.`createdAt` AS `PurchaseItems.createdAt`, `PurchaseItems`.`updatedAt` AS `PurchaseItems.updatedAt`, `PurchaseItems->Product`.`id` AS `PurchaseItems.Product.id`, `PurchaseItems->Product`.`part_number` AS `PurchaseItems.Product.part_number`, `PurchaseItems->Product`.`oe_part_number` AS `PurchaseItems.Product.oe_part_number`, `PurchaseItems->Product`.`description` AS `PurchaseItems.Product.description`, `PurchaseItems->Product`.`variant` AS `PurchaseItems.Product.variant`, `PurchaseItems->Product`.`specification` AS `PurchaseItems.Product.specification`, `PurchaseItems->Product`.`model_application` AS `PurchaseItems.Product.model_application`, `PurchaseItems->Product`.`position` AS `PurchaseItems.Product.position`, `PurchaseItems->Product`.`glass_type` AS `PurchaseItems.Product.glass_type`, `PurchaseItems->Product`.`purchase_price` AS `PurchaseItems.Product.purchase_price`, `PurchaseItems->Product`.`selling_price` AS `PurchaseItems.Product.selling_price`, `PurchaseItems->Product`.`stock_quantity` AS `PurchaseItems.Product.stock_quantity`, `PurchaseItems->Product`.`reorder_level` AS `PurchaseItems.Product.reorder_level`, `PurchaseItems->Product`.`location` AS `PurchaseItems.Product.location`, `PurchaseItems->Product`.`createdAt` AS `PurchaseItems.Product.createdAt`, `PurchaseItems->Product`.`updatedAt` AS `PurchaseItems.Product.updatedAt`, `PurchaseItems->Product`.`categoryId` AS `PurchaseItems.Product.categoryId`, `PurchaseItems->Product`.`brandId` AS `PurchaseItems.Product.brandId`, `PurchaseItems->Product`.`supplierId` AS `PurchaseItems.Product.supplierId` FROM (SELECT `Purchase`.`id`, `Purchase`.`invoice_number`, `Purchase`.`supplier_name`, `Purchase`.`purchase_date`, `Purchase`.`total_amount`, `Purchase`.`status`, `Purchase`.`createdAt`, `Purchase`.`updatedAt`, `Purchase`.`supplierId` FROM `Purchases` AS `Purchase` ORDER BY `Purchase`.`purchase_date` DESC LIMIT 5) AS `Purchase` LEFT OUTER JOIN `PurchaseItems` AS `PurchaseItems` ON `Purchase`.`id` = `PurchaseItems`.`purchaseId` LEFT OUTER JOIN `Products` AS `PurchaseItems->Product` ON `PurchaseItems`.`productId` = `PurchaseItems->Product`.`id` ORDER BY `Purchase`.`purchase_date` DESC;
+Purchase ID: 1, Date: Thu Feb 19 2026 10:11:13 GMT+0530 (India Standard Time), Items: 1
+  - Item ID: 6, Product ID: 14, Product Loaded: true
+    - Part No: TEST-PART-1771476073018, Desc: Test Product for Purchase Flow
+Purchase ID: 2, Date: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time), Items: 0
+Purchase ID: 3, Date: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time), Items: 0
+Purchase ID: 4, Date: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time), Items: 0
+Purchase ID: 5, Date: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time), Items: 5
+  - Item ID: 1, Product ID: 14, Product Loaded: true
+    - Part No: TEST-PART-1771476073018, Desc: Test Product for Purchase Flow
+  - Item ID: 2, Product ID: null, Product Loaded: false
+  - Item ID: 3, Product ID: null, Product Loaded: false
+  - Item ID: 4, Product ID: null, Product Loaded: false
+  - Item ID: 5, Product ID: null, Product Loaded: false

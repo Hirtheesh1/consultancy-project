@@ -1,0 +1,10 @@
+Starting Verification...
+Connecting to http://localhost:5001/api/customers/3?page=1&limit=10
+Page 1 Sales Count: 10
+Total Sales: 25
+Total Pages: 3
+Testing Page 2 (Limit 10)...
+Page 2 Sales Count: 10
+Testing Page 3 (Limit 10)...
+Page 3 Sales Count: 5
+Pagination Verified Successfully!

@@ -1,0 +1,8 @@
+id (INTEGER)
+quantity (INTEGER)
+unit_price (DECIMAL(10,2))
+total_price (DECIMAL(10,2))
+createdAt (DATETIME)
+updatedAt (DATETIME)
+purchaseId (INTEGER)
+productId (INTEGER)

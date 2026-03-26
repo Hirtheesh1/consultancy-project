@@ -1,0 +1,12 @@
+Starting Verification...
+Database connected.
+Created Customer: Report Closure Tester 1771427217728 (Credit: 200)
+Created 2 OPEN Sales (Total 200)
+--- Simulating Partial Payment (100) ---
+Partial Payment Recorded. New Credit: 100
+Open Sales Count (Expect 3: 2 Sales + 1 Payment): 3
+--- Simulating Final Payment (100) ---
+Report Closed Triggered
+Final Open Sales: 0 (Expect 0)
+Final Closed Sales: 4 (Expect 4: 2 Sales + 2 Payments)
+SUCCESS: Report Closure Logic Verified!

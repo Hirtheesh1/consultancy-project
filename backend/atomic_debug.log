@@ -1,0 +1,9 @@
+Path: D:\consultancy project\backend\database\inventory.sqlite
+Raw Total Items: 6
+All Raw IDs: 1(pid:null), 2(pid:null), 3(pid:null), 4(pid:null), 5(pid:null), 6(pid:1)
+Model Total Items: 6
+Model IDs: 1, 2, 3, 4, 5, 6
+First Item Raw: {"id":1,"quantity":5,"unit_price":120,"total_price":600,"purchaseId":null,"productId":14,"createdAt":"2026-02-19 04:41:13.078 +00:00","updatedAt":"2026-02-19 04:41:13.078 +00:00"}
+Created New Item ID: 7
+Model Total Items (After): 7
+Model IDs (After): 1, 2, 3, 4, 5, 6, 7
