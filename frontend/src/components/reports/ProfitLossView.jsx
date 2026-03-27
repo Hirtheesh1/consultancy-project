@@ -24,7 +24,7 @@ const ProfitLossView = () => {
     };
 
     const handleExport = (type) => {
-        window.open(`http://localhost:5001/api/financial-reports/profit-and-loss?year=${year}&export_type=${type}`);
+        window.open(`https://consultancy-project-v1mx.onrender.com/api/financial-reports/profit-and-loss?year=${year}&export_type=${type}`);
     };
 
     if (!data) return <p>Loading...</p>;

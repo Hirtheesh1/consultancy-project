@@ -25,7 +25,7 @@ const GSTReportView = () => {
     };
 
     const handleExport = (type) => {
-        window.open(`http://localhost:5001/api/financial-reports/gst-summary?startDate=${startDate}&endDate=${endDate}&export_type=${type}`);
+        window.open(`https://consultancy-project-v1mx.onrender.com/api/financial-reports/gst-summary?startDate=${startDate}&endDate=${endDate}&export_type=${type}`);
     };
 
     if (!data) return <p>Loading...</p>;
